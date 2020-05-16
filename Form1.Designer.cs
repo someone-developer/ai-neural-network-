@@ -157,9 +157,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(40, 53);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(84, 13);
+            this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 13;
-            this.label6.Text = "Traning Iteration";
+            this.label6.Text = "Training Iteration";
             // 
             // txtIteration
             // 
