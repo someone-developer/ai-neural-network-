@@ -44,10 +44,10 @@ namespace AI_EstimateManday
                 int iteration = int.Parse(txtIteration.Text);
                 List<MandayDataSet> dataset = JsonConvert.DeserializeObject<List<MandayDataSet>>(rawSource);
                 double[] weiths = ml.Train(dataset, iteration);
-                lblW_dev_level.Text = $"{weiths[0]}";
-                lblW_manday.Text = $"{weiths[1]}";
-                lblW_Skill.Text = $"{weiths[2]}";
-                lblW_complete.Text = $"{weiths[3]}"; 
+                lblW_dev_level.Text =string.Format("{0:0.000}", weiths[0]);
+                lblW_manday.Text = string.Format("{0:0.000}", weiths[1]);
+                lblW_Skill.Text = string.Format("{0:0.000}", weiths[2]);
+                lblW_complete.Text = string.Format("{0:0.000}", weiths[3]);
             }
         }
 
@@ -58,17 +58,17 @@ namespace AI_EstimateManday
                 double[] input = new double[] { double.Parse(txtDevLevel.Text), double.Parse(txtManday.Text), double.Parse(txtSkillCompatible.Text), double.Parse(txtPercentComplete.Text) };
                 double predict = ml.Predict(input);
                 double md = Double.Parse(txtManday.Text);
-                if (predict > 80)
+                if (predict >= 0.55)
                 {
                     lblSuggestion.Text =  $"{md} Mds";
                 }
-                else if (predict >= 60)
+                else if (predict >= 0.54)
                 {
                     
 
-                    lblSuggestion.Text = md + (md * 20 / 100) + " Mds";
+                    lblSuggestion.Text = md + (md * 10 / 100) + " Mds";
                 }
-                else if (predict >= 50)
+                else if (predict > 0.53)
                 {
                    
 

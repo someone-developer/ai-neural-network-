@@ -42,7 +42,12 @@ namespace AI_EstimateManday
         }
         private double SumWeight(double[] inputs)
         {
-            return inputs.ToList().Sum();
+           double   sum_input_weight = 0;
+            for (int i = 0; i < inputs.Length; i++)
+            {
+                sum_input_weight += inputs[i] * this.weights[i];
+            }
+            return sum_input_weight;
         }
         private double Activation(double sum_weight)
         {
